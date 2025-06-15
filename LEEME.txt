@@ -60,12 +60,10 @@ La comunicación entre frontend y backend se realiza mediante peticiones AJAX a 
 
 Ubícate en el directorio raiz del servidor web  y clona el proyecto:
 
-git clone <url-del-repositorio>
-cd <nombre-del-proyecto>/html
+git clone git@github.com:eevp88/test_desis.git
 
 
 6.2. Configurar la Base de Datos
-
 1. Ejecuta los scripts SQL en el siguiente orden para crear las tablas y funciones necesarias:
    - `sql/createdb.sql`
    - `sql/store.sql`
@@ -78,13 +76,11 @@ Puedes usar una herramienta como `psql` o un cliente gráfico como pgAdmin para 
 
 2. Ajusta los datos de conexión en `db/config.php`
 
-
    define("HOST", "localhost");
    define("PORT", "5432");
    define("DBNAME", "db_test");
    define("USER", "postgres");
    define("PASS", "postgres");
-
 
 7. Configurar el Servidor Web
 
