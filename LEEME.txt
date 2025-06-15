@@ -2,7 +2,7 @@ Documentación del Proyecto
 
 1.- Descripción General
 
-Este proyecto es una aplicación web para la prueba de diagnostico de la empresa Desis, que cosiste en Sistema de Registro de productos. Utiliza PHP puro y PostgreSQL para el backend, y HTML, JavaScript/CSS para el frontend.
+Este proyecto es una aplicación web para la prueba de diagnóstico de la empresa Desis, que cosiste en Sistema de Registro de productos. Utiliza PHP puro y PostgreSQL para el backend, y HTML, JavaScript/CSS para el frontend.
 
 2.-  Requisitos del Sistema
 
@@ -46,13 +46,13 @@ html # carpeta raíz del seridor web
 
 5.- Arquitectura del Proyecto
 
-El proyecto sigue una arquitectura **MVC simplificada**:
+El proyecto sigue una arquitectura MVC simplificada:
 
-- Repocitorio (`repositories/`): Acceso a datos y lógica de persistencia.
-- Controlador (`controllers/`): Lógica de negocio.
-- Vista (`index.html` + `public/`): Interfaz de usuario, validaciones y lógica de interacción en el navegador.
+- Repocitorio (repositories/): Acceso a datos y lógica de persistencia.
+- Controlador (controllers/): Lógica de negocio.
+- Vista (index.html + public/): Interfaz de usuario, validaciones y lógica de interacción en el navegador.
 
-La comunicación entre frontend y backend se realiza mediante peticiones AJAX a endpoints PHP ubicados en `public/`.
+La comunicación entre frontend y backend se realiza mediante peticiones AJAX a endpoints PHP ubicados en public/.
 
 6.- Instalación y Configuración
 
@@ -84,7 +84,7 @@ Puedes usar una herramienta como `psql` o un cliente gráfico como pgAdmin para 
 
 7. Configurar el Servidor Web
 
-- Configura el **DocumentRoot** de Apache al directorio `html/`.
+- Configura el DocumentRoot de Apache al directorio html/.
 - Asegúrate de que el servidor tenga permisos para ejecutar PHP y acceder a la base de datos.
 - Habilita la visualización de errores en desarrollo para facilitar el debug.
 
@@ -106,7 +106,7 @@ Puedes usar una herramienta como `psql` o un cliente gráfico como pgAdmin para 
 
 9. Validaciones y Reglas de Negocio
 
-- Código de producto: Debe tener entre 5 y 15 caracteres, contener al menos una letra y un número, y no debe contener otros caracteres diferentes, además debe ser único, se debe validar estoultimo en bases de datos.
+- Código de producto: Debe tener entre 5 y 15 caracteres, contener al menos una letra y un número, y no debe contener otros caracteres diferentes, además debe ser único, se debe validar esto ultimo en bases de datos.
 - Nombre: Entre 2 y 50 caracteres.
 - Precio: Número positivo, hasta dos decimales.
 - Materiales: Seleccionar al menos dos.
