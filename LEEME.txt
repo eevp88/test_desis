@@ -1,0 +1,123 @@
+Documentación del Proyecto
+
+1.- Descripción General
+
+Este proyecto es una aplicación web para la prueba de diagnostico de la empresa Desis, que cosiste en Sistema de Registro de productos. Utiliza PHP puro y PostgreSQL para el backend, y HTML, JavaScript/CSS para el frontend.
+
+2.-  Requisitos del Sistema
+
+- PHP 8.3.6
+- PostgreSQL 16.9
+- Servidor web Apache 2.4.58
+- Navegador web
+- Sistema operativo compatible con los anteriores (Linux recomendado)
+
+3.- Link de tutorial de Instalación y Configuración de servidor web Linix, Apache, PHP y PostgreSQL
+https://github.com/DigitalEducas/tutoriales/blob/main/LAPP.md
+
+4.- Estructura del Proyecto
+
+html # carpeta raíz del seridor web
+    controllers/         # Lógica de negocio y endpoints
+       FormController.php
+        ProductController.php│
+    db/                  # Configuración y conexión a la base de datos
+        config.php
+        dbConnection.php
+    public/              # Archivos públicos (JS, CSS, PHP)
+        formOptions.php
+        function.js
+        global.css
+        saveProduct.php
+    repositories/        # Repositorios de acceso a datos
+        Branch.php
+        Currency.php
+        Product.php
+        Store.php
+    sql/                 # Scripts SQL para la base de datos
+        branchs.sql
+        createdb.sql
+        currency.sql
+        products.sql
+        saveProduct.sql
+        store.sql
+    index.html           # Página principal del formulario
+    LEEME.txt
+
+5.- Arquitectura del Proyecto
+
+El proyecto sigue una arquitectura **MVC simplificada**:
+
+- Repocitorio (`repositories/`): Acceso a datos y lógica de persistencia.
+- Controlador (`controllers/`): Lógica de negocio.
+- Vista (`index.html` + `public/`): Interfaz de usuario, validaciones y lógica de interacción en el navegador.
+
+La comunicación entre frontend y backend se realiza mediante peticiones AJAX a endpoints PHP ubicados en `public/`.
+
+6.- Instalación y Configuración
+
+6.1. Clonar el repositorio
+
+Ubícate en el directorio raiz del servidor web  y clona el proyecto:
+
+git clone <url-del-repositorio>
+cd <nombre-del-proyecto>/html
+
+
+6.2. Configurar la Base de Datos
+
+1. Ejecuta los scripts SQL en el siguiente orden para crear las tablas y funciones necesarias:
+   - `sql/createdb.sql`
+   - `sql/store.sql`
+   - `sql/branchs.sql`
+   - `sql/currency.sql`
+   - `sql/products.sql`
+   - `sql/saveProduct.sql`
+
+Puedes usar una herramienta como `psql` o un cliente gráfico como pgAdmin para ejecutar estos scripts.
+
+2. Ajusta los datos de conexión en `db/config.php`
+
+
+   define("HOST", "localhost");
+   define("PORT", "5432");
+   define("DBNAME", "db_test");
+   define("USER", "postgres");
+   define("PASS", "postgres");
+
+
+7. Configurar el Servidor Web
+
+- Configura el **DocumentRoot** de Apache al directorio `html/`.
+- Asegúrate de que el servidor tenga permisos para ejecutar PHP y acceder a la base de datos.
+- Habilita la visualización de errores en desarrollo para facilitar el debug.
+
+8.- Uso de la Aplicación
+
+8.1 Accede a la aplicación desde tu navegador en la URL configurada, por ejemplo:
+
+   http://localhost
+
+8.2. Formulario de registro de productos:
+   - Completa los campos requeridos: código, nombre, bodega, sucursal, moneda, precio, materiales (mínimo dos), y descripción.
+   - El formulario valida los datos antes de enviarlos.
+   - Al guardar, los datos se almacenan en la base de datos mediante una función almacenada en PostgreSQL.
+
+8.3. Verificación:
+   - Si el producto se guarda correctamente, recibirás un mensaje de éxito.
+   - Si el código ya existe o hay un error, se mostrará un mensaje descriptivo.
+
+
+9. Validaciones y Reglas de Negocio
+
+- Código de producto: Debe tener entre 5 y 15 caracteres, contener al menos una letra y un número, y no debe contener otros caracteres diferentes, además debe ser único, se debe validar estoultimo en bases de datos.
+- Nombre: Entre 2 y 50 caracteres.
+- Precio: Número positivo, hasta dos decimales.
+- Materiales: Seleccionar al menos dos.
+- Descripción: Entre 10 y 1000 caracteres.
+- Todos los campos son obligatorios.
+
+10.- Notas
+
+- El código está preparado para desarrollo local. Para producción, ajusta los parámetros de conexión y seguridad.
+- Si necesitas restablecer la base de datos, puedes volver a ejecutar los scripts SQL.

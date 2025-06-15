@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="public/global.css" />
+        <title>Agregar Productos</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Formulario de Producto</h1>
+            <form id="formProduct">
+                <div id="inputProductCode">
+                    <label for="productCode">Código de producto</label>
+                    <input id="productCode" name="productCode" type="text" />
+                </div>
+                <div id="inputProductName">
+                    <label for="productName">Nombre del Producto</label>
+                    <input id="productName" name="productName" type="text" />
+                </div>
+                <div id="selectStore">
+                    <label for="idStore">Bodega</label>
+                    <select
+                        name="idStore"
+                        id="idStore"
+                        onchange="onChangeStore()"
+                    >
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div id="selectBranch">
+                    <label for="idBranch">Sucursal</label>
+                    <select name="idBranch" id="idBranch">
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div id="selectCurrency">
+                    <label for="idCurrency">Moneda</label>
+                    <select name="idCurrency" id="idCurrency">
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div id="inputProductPrice">
+                    <label for="productPrice">Precio</label>
+                    <input id="productPrice" name="productPrice" type="text" />
+                </div>
+                <fieldset id="checkboxGroupProductMaterial">
+                    <legend>Material del Producto</legend>
+                    <label
+                        ><input
+                            type="checkbox"
+                            name="material"
+                            value="plastico"
+                        />
+                        Plástico</label
+                    >
+                    <label
+                        ><input type="checkbox" name="material" value="metal" />
+                        Metal</label
+                    >
+                    <label
+                        ><input
+                            type="checkbox"
+                            name="material"
+                            value="madera"
+                        />
+                        Madera</label
+                    >
+                    <label
+                        ><input
+                            type="checkbox"
+                            name="material"
+                            value="vidrio"
+                        />
+                        Vidrio</label
+                    >
+                    <label
+                        ><input
+                            type="checkbox"
+                            name="material"
+                            value="textil"
+                        />
+                        Textil</label
+                    >
+                </fieldset>
+                <div id="textareaProductDescription">
+                    <label for="productDescription"
+                        >Descripción del Producto</label
+                    >
+                    <textarea
+                        name="productDescription"
+                        id="productDescription"
+                    ></textarea>
+                </div>
+                <button type="submit">Guardar Producto</button>
+            </form>
+        </div>
+        <script src="public/function.js"></script>
+    </body>
+</html>
