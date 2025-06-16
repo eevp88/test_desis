@@ -13,3 +13,4 @@ class ProductController
         echo json_encode($resultado);
     }
 }
+?>
