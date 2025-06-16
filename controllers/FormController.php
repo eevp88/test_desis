@@ -26,7 +26,7 @@ class FormController
         ]);
     }
 
-    public function getBranchForIdstore(int $idStore): string
+    public function getBranchForIdStore(int $idStore): string
     {
         $branches = $this->branchRepo->getBranchByIdStore($idStore);
         return json_encode($branches);
