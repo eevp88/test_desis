@@ -20,6 +20,6 @@ if ($acction === "I") {
 }
 if ($acction === "B") {
     $idStore = $_GET["id_store"];
-    echo $controller->getBranchForIdstore($idStore);
+    echo $controller->getBranchForIdStore($idStore);
 }
 ?>
